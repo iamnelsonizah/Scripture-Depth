@@ -650,7 +650,7 @@ class ChapterAudioInfo {
     required this.verses,
   });
 
-  factory ChapterAudioInfo.fromJson(Map<String, dynamic> json, {String baseUrl = 'http://127.0.0.1:8000/api/v1'}) {
+  factory ChapterAudioInfo.fromJson(Map<String, dynamic> json, {String baseUrl = 'https://scripture-depth.fastapicloud.dev/api/v1'}) {
     final rawStream = json['stream_url'] ?? '';
     final fullStreamUrl = rawStream.startsWith('http')
         ? rawStream

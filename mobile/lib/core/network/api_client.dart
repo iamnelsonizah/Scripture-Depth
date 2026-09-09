@@ -3,11 +3,16 @@ import 'package:http/http.dart' as http;
 import '../models/scripture_models.dart';
 import '../data/scripture_library.dart';
 
+const String defaultApiBaseUrl = String.fromEnvironment(
+  'API_BASE_URL',
+  defaultValue: 'https://scripture-depth.fastapicloud.dev/api/v1',
+);
+
 class ApiClient {
   final String baseUrl;
   String? _authToken;
 
-  ApiClient({this.baseUrl = 'http://127.0.0.1:8000/api/v1'});
+  ApiClient({this.baseUrl = defaultApiBaseUrl});
 
   void setAuthToken(String? token) {
     _authToken = token;

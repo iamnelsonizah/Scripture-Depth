@@ -13,7 +13,11 @@ import 'features/onboarding/onboarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final apiClient = ApiClient(baseUrl: 'http://127.0.0.1:8000/api/v1');
+  const apiBaseUrl = String.fromEnvironment(
+    'API_BASE_URL',
+    defaultValue: 'https://scripture-depth.fastapicloud.dev/api/v1',
+  );
+  final apiClient = ApiClient(baseUrl: apiBaseUrl);
   final supabaseService = SupabaseService(apiClient: apiClient);
 
   // Initialize Supabase with dart-define environment keys if passed at build time
